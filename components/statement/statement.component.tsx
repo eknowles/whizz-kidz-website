@@ -5,6 +5,7 @@ import BrandContext from '../../lib/brand-context';
 export interface IStatementProps {
   eyebrow?: React.ReactNode;
   heading?: React.ReactNode;
+	backgroundHeading?: string;
   text?: React.ReactNode;
   isCentered?: boolean;
   hasBigHeading?: boolean;
@@ -12,11 +13,13 @@ export interface IStatementProps {
   headerLevel?: number;
   hasEyebrowStyle?: boolean;
   className?: string;
+	imageDescription?: string;
 }
 
 const Statement: React.FC<IStatementProps> = ({
   eyebrow,
   heading,
+	backgroundHeading,
   text,
   isCentered = false,
   hasBigHeading = false,
@@ -43,19 +46,26 @@ const Statement: React.FC<IStatementProps> = ({
   const headingElement = React.createElement(
     headerElement === 'heading' ? `h${headerLevel}` : 'p',
     {
-      className: cx(`text-gray-700 font-bold leading-snug`, {
+      className: cx(`font-bold leading-snug`, {
         'text-4xl': !hasBigHeading,
         'text-6xl': hasBigHeading,
+				'text-gray-700': !backgroundHeading,
+				'text-white px-2 py-1': backgroundHeading,
       }),
+			style: {
+				background: backgroundHeading,
+				display: 'inline'
+			}
     },
     heading
   );
+	const textBody = {__html: `${text}`}
 
   return (
     <div className={cx({ 'text-center': isCentered }, className)}>
       <div>{eyebrow && eyebrowElement}</div>
-      <div>{heading && headingElement}</div>
-      {text && <p className="mt-3 text-2xl font-light text-gray-700">{text}</p>}
+      <div className="block">{heading && headingElement}</div>
+      {text && <p className="mt-3 text-2xl font-light text-gray-700" dangerouslySetInnerHTML={textBody}></p>}
     </div>
   );
 };
