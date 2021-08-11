@@ -16,15 +16,19 @@ export default {
 export const Normal = Template.bind({});
 
 Normal.args = {
-  label: 'Whizz-Kidz Clubs',
-  isBig: false,
-  linkProps: { href: '/' },
+  title: '212',
+	fontSizeTitle: 30,
+	bodyText: 'Reviewing older Whizz-Kidz wheelchairs',
+	backgroundText: 'rgba(132, 189, 0, 0.6)',
+  isBig: false
 };
 
 export const Big = Template.bind({});
 
 Big.args = {
-  label: 'Whizz-Kidz Clubs',
-  isBig: true,
-  linkProps: { href: '/' },
+  title: '717',
+	fontSizeTitle: 40,
+	bodyText: 'Total number of young people helped with equipment or repair and maintenance',
+	backgroundText: '#523178',
+  isBig: true
 };
