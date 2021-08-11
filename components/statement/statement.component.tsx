@@ -36,9 +36,14 @@ const Statement: React.FC<IStatementProps> = ({
         'mb-3',
         {
           'uppercase font-bold tracking-wider': hasEyebrowStyle,
-        },
-        smallTextColor
+					[`${smallTextColor}`]: !backgroundHeading,
+					'text-white px-2 py-1': backgroundHeading,
+        }
       ),
+			style: {
+				background: backgroundHeading,
+				display: 'inline'
+			}
     },
     eyebrow
   );
@@ -63,7 +68,7 @@ const Statement: React.FC<IStatementProps> = ({
 
   return (
     <div className={cx({ 'text-center': isCentered }, className)}>
-      <div>{eyebrow && eyebrowElement}</div>
+      <div className="block my-3">{eyebrow && eyebrowElement}</div>
       <div className="block">{heading && headingElement}</div>
       {text && <p className="mt-3 text-2xl font-light text-gray-700" dangerouslySetInnerHTML={textBody}></p>}
     </div>
