@@ -51,7 +51,7 @@ const Statement: React.FC<IStatementProps> = ({
   const headingElement = React.createElement(
     headerElement === 'heading' ? `h${headerLevel}` : 'p',
     {
-      className: cx(`font-bold leading-snug`, {
+      className: cx(`font-bold leading-snug clone`, {
         'text-4xl': !hasBigHeading,
         'text-6xl': hasBigHeading,
 				'text-gray-700': !backgroundHeading,
