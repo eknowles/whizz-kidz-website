@@ -1,9 +1,11 @@
 export default {
   transparentBackground: false,
   imagePosition: 'right',
+	imageDescription: 'text',
+	backgroundHeading: '#523178',
   eyebrow: 'eyebrow',
   heading: 'Heading',
-  text: 'text',
+  text: '<ul><li>Item</li></ul>',
   callToAction: {
     label: 'Donate',
     internal: {

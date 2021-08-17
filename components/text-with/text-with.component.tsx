@@ -13,6 +13,7 @@ export interface ITextWithProps extends IStatementProps {
   transparentBackground?: boolean;
   imagePosition: 'left' | 'right';
   callToAction?: ICallToActionProps;
+	backgroundHeading?: string|'transaparent';
 }
 
 const TextWith: React.FC<ITextWithProps> = ({
@@ -21,7 +22,9 @@ const TextWith: React.FC<ITextWithProps> = ({
   eyebrow,
   text,
   imagePosition = 'right',
+	imageDescription,
   transparentBackground,
+	backgroundHeading,
   callToAction,
 }) => {
   const shouldReduceMotion = useReducedMotion();
@@ -50,6 +53,7 @@ const TextWith: React.FC<ITextWithProps> = ({
             text={text}
             headerElement={headerElement}
             hasEyebrowStyle
+						backgroundHeading={backgroundHeading}
           />
           {callToAction && (
             <div>
@@ -68,6 +72,11 @@ const TextWith: React.FC<ITextWithProps> = ({
             })}
           >
             {children}
+						{imageDescription && (
+							<span>
+								{imageDescription}
+							</span>
+						)}
           </Parallax>
         )}
       </div>
