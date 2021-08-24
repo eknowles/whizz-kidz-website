@@ -38,19 +38,21 @@ export default function EventsHome({
           backgroundType="color"
         />
         <Decoration decorationPosition="right" decorationType="asterisk02" />
-        <TextWithImage
-          image={eventsPage.featuredEvent.image}
-          imagePosition="right"
-          eyebrow="Featured Event"
-          heading={eventsPage.featuredEvent.name}
-          callToAction={{
-            label: 'See Event Details',
-            internal: {
-              _modelApiKey: 'event',
-              slug: eventsPage.featuredEvent.slug,
-            },
-          }}
-        />
+				{eventsPage.featuredEvent && (
+					<TextWithImage
+						image={eventsPage.featuredEvent.image}
+						imagePosition="right"
+						eyebrow="Featured Event"
+						heading={eventsPage.featuredEvent.name}
+						callToAction={{
+							label: 'See Event Details',
+							internal: {
+								_modelApiKey: 'event',
+								slug: eventsPage.featuredEvent.slug,
+							},
+						}}
+					/>
+				)}
         <EventCardList events={upcomingEvents} label="Upcoming Events" />
         <Container className="text-center mb-10">
           <Button
